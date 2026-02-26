@@ -1,12 +1,12 @@
 /**
  * Variables Configuration
  * =======================
- * 
+ *
  * CENTRAL PLACE TO DEFINE ALL SHARED VARIABLES
- * 
+ *
  * This file defines all variables that can be shared across sections.
  * AI agents should read this file to understand what variables are available.
- * 
+ *
  * USAGE:
  * 1. Define variables here with their default values and metadata
  * 2. Use them in any section with: const x = useVar('variableName', defaultValue)
@@ -55,106 +55,132 @@ export interface VariableDefinition {
  * =====================================================
  * 🎯 DEFINE YOUR VARIABLES HERE
  * =====================================================
- * 
- * SUPPORTED TYPES:
- * 
- * 1. NUMBER (slider):
- *    { defaultValue: 5, type: 'number', min: 0, max: 10, step: 1 }
- * 
- * 2. TEXT (free text):
- *    { defaultValue: 'Hello', type: 'text', placeholder: 'Enter text...' }
- * 
- * 3. SELECT (dropdown):
- *    { defaultValue: 'sine', type: 'select', options: ['sine', 'cosine', 'tangent'] }
- * 
- * 4. BOOLEAN (toggle):
- *    { defaultValue: true, type: 'boolean' }
- * 
- * 5. ARRAY (list of numbers):
- *    { defaultValue: [1, 2, 3], type: 'array' }
- * 
- * 6. OBJECT (complex data):
- *    { defaultValue: { x: 5, y: 10 }, type: 'object', schema: '{ x: number, y: number }' }
  */
 export const variableDefinitions: Record<string, VariableDefinition> = {
     // ========================================
-    // ADD YOUR VARIABLES HERE
+    // Quiz Progress Tracking
     // ========================================
-
-    // Uncomment and modify these examples for your lesson:
-
-    /*
-    // ─────────────────────────────────────────
-    // NUMBER - Use with sliders
-    // ─────────────────────────────────────────
-    myValue: {
-        defaultValue: 5,
+    quizProgress: {
+        defaultValue: 0,
         type: 'number',
-        label: 'My Value',
-        description: 'A number that controls something',
-        unit: 'm',           // optional unit display
+        label: 'Quiz Progress',
+        description: 'Tracks the current step in the quiz',
         min: 0,
         max: 10,
-        step: 0.5,
+        step: 1,
     },
 
-    // ─────────────────────────────────────────
-    // TEXT - Free text input
-    // ─────────────────────────────────────────
-    lessonTitle: {
-        defaultValue: 'My Lesson',
+    // ========================================
+    // Addition Questions (Section 1)
+    // ========================================
+    add1: {
+        defaultValue: '',
         type: 'text',
-        label: 'Lesson Title',
-        description: 'The title of your lesson',
-        placeholder: 'Enter a title...',
+        label: 'Addition Question 1',
+        description: '5 + 3 = ?',
+        placeholder: '?',
+        correctAnswer: '8',
+        color: '#10B981',
+        bgColor: 'rgba(16, 185, 129, 0.15)',
+    },
+    add2: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Addition Question 2',
+        description: '7 + 6 = ?',
+        placeholder: '?',
+        correctAnswer: '13',
+        color: '#10B981',
+        bgColor: 'rgba(16, 185, 129, 0.15)',
+    },
+    add3: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Addition Question 3',
+        description: '9 + 4 = ?',
+        placeholder: '?',
+        correctAnswer: '13',
+        color: '#10B981',
+        bgColor: 'rgba(16, 185, 129, 0.15)',
+    },
+    add4: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Addition Question 4',
+        description: '8 + 7 = ?',
+        placeholder: '?',
+        correctAnswer: '15',
+        color: '#10B981',
+        bgColor: 'rgba(16, 185, 129, 0.15)',
     },
 
-    // ─────────────────────────────────────────
-    // SELECT - Dropdown with options
-    // ─────────────────────────────────────────
-    difficulty: {
-        defaultValue: 'medium',
-        type: 'select',
-        label: 'Difficulty',
-        description: 'The difficulty level of the lesson',
-        options: ['easy', 'medium', 'hard', 'expert'],
+    // ========================================
+    // Subtraction Questions (Section 2)
+    // ========================================
+    sub1: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Subtraction Question 1',
+        description: '12 - 5 = ?',
+        placeholder: '?',
+        correctAnswer: '7',
+        color: '#8B5CF6',
+        bgColor: 'rgba(139, 92, 246, 0.15)',
+    },
+    sub2: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Subtraction Question 2',
+        description: '15 - 8 = ?',
+        placeholder: '?',
+        correctAnswer: '7',
+        color: '#8B5CF6',
+        bgColor: 'rgba(139, 92, 246, 0.15)',
+    },
+    sub3: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Subtraction Question 3',
+        description: '18 - 9 = ?',
+        placeholder: '?',
+        correctAnswer: '9',
+        color: '#8B5CF6',
+        bgColor: 'rgba(139, 92, 246, 0.15)',
+    },
+    sub4: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Subtraction Question 4',
+        description: '14 - 6 = ?',
+        placeholder: '?',
+        correctAnswer: '8',
+        color: '#8B5CF6',
+        bgColor: 'rgba(139, 92, 246, 0.15)',
     },
 
-    // ─────────────────────────────────────────
-    // BOOLEAN - Toggle switch
-    // ─────────────────────────────────────────
-    showHints: {
-        defaultValue: true,
-        type: 'boolean',
-        label: 'Show Hints',
-        description: 'Toggle to show or hide hints',
+    // ========================================
+    // Mixed Challenge Questions (Section 3)
+    // ========================================
+    mix1: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Mixed Question 1',
+        description: '6 + 9 = ?',
+        placeholder: '?',
+        correctAnswer: '15',
+        color: '#F59E0B',
+        bgColor: 'rgba(245, 158, 11, 0.15)',
     },
-
-    // ─────────────────────────────────────────
-    // ARRAY - List of numbers
-    // ─────────────────────────────────────────
-    dataPoints: {
-        defaultValue: [1, 4, 9, 16, 25],
-        type: 'array',
-        label: 'Data Points',
-        description: 'Y-values for plotting a graph',
+    mix2: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Mixed Question 2',
+        description: '17 - 8 = ?',
+        placeholder: '?',
+        correctAnswer: '9',
+        color: '#F59E0B',
+        bgColor: 'rgba(245, 158, 11, 0.15)',
     },
-
-    // ─────────────────────────────────────────
-    // OBJECT - Complex structured data
-    // ─────────────────────────────────────────
-    graphSettings: {
-        defaultValue: { 
-            xMin: -10, 
-            xMax: 10, 
-            showGrid: true 
-        },
-        type: 'object',
-        label: 'Graph Settings',
-        description: 'Configuration for the graph display',
-        schema: '{ xMin: number, xMax: number, showGrid: boolean }',
-    },
-    */
 };
 
 /**
