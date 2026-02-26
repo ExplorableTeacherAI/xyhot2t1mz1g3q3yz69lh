@@ -2,7 +2,7 @@ import { type ReactElement } from "react";
 import { Block } from "@/components/templates";
 import { StackLayout } from "@/components/layouts";
 import { StepLayout, Step } from "@/components/layouts/StepLayout";
-import { EditableH1, EditableH2, EditableParagraph, InlineClozeInput } from "@/components/atoms";
+import { EditableH1, EditableH2, EditableParagraph, InlineClozeInput, FinalScore } from "@/components/atoms";
 
 // Initialize variables and their colors from this file's variable definitions
 import { useVariableStore, initializeVariableColors } from "@/stores";
@@ -228,6 +228,21 @@ export const blocks: ReactElement[] = [
                     </EditableParagraph>
                 </Step>
             </StepLayout>
+        </Block>
+    </StackLayout>,
+
+    // ============================================
+    // Final Score Section
+    // ============================================
+    <StackLayout key="layout-final-score" maxWidth="xl">
+        <Block id="block-final-score" padding="lg">
+            <EditableH2 id="h2-final-score" blockId="block-final-score">
+                Final Score
+            </EditableH2>
+            <FinalScore
+                questionVarNames={['add1', 'add2', 'add3', 'add4', 'sub1', 'sub2', 'sub3', 'sub4', 'mix1', 'mix2']}
+                label="Your Score:"
+            />
         </Block>
     </StackLayout>,
 ];
