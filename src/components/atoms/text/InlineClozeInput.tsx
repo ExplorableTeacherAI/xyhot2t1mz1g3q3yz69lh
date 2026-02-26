@@ -305,19 +305,22 @@ export const InlineClozeInput: React.FC<InlineClozeInputProps> = ({
         );
     }
 
-    // Preview mode: correct answer shown
+    // Preview mode: correct answer shown with smiley face
     if (isCorrect && inputValue) {
         return (
             <span ref={containerRef} {...wrapperProps}>
-                <span
-                    className="font-medium"
-                    style={{
-                        color: effectiveColor,
-                        borderBottom: `2px solid ${effectiveColor}`,
-                        paddingBottom: '1px',
-                    }}
-                >
-                    {inputValue}
+                <span className="inline-flex items-center gap-1">
+                    <span
+                        className="font-medium"
+                        style={{
+                            color: '#22C55E',
+                            borderBottom: `2px solid #22C55E`,
+                            paddingBottom: '1px',
+                        }}
+                    >
+                        {inputValue}
+                    </span>
+                    <span className="text-lg" role="img" aria-label="correct">😊</span>
                 </span>
             </span>
         );
