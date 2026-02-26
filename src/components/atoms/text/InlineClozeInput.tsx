@@ -323,28 +323,42 @@ export const InlineClozeInput: React.FC<InlineClozeInputProps> = ({
         );
     }
 
-    // Preview mode: incorrect answer with clear button
+    // Preview mode: incorrect answer with correct answer shown
     if (isChecked && !isCorrect && inputValue) {
         return (
             <span ref={containerRef} {...wrapperProps}>
-                <span
-                    className="inline-flex items-center font-medium"
-                    style={{
-                        color: effectiveColor,
-                        borderBottom: `2px solid #EF4444`,
-                        paddingBottom: '1px',
-                    }}
-                >
-                    <span style={{ color: effectiveColor }}>
+                <span className="inline-flex items-center gap-1 font-medium">
+                    {/* Wrong answer with strikethrough */}
+                    <span
+                        className="line-through opacity-60"
+                        style={{
+                            color: '#EF4444',
+                        }}
+                    >
                         {inputValue}
                     </span>
+                    {/* Correct answer */}
+                    <span
+                        style={{
+                            color: '#22C55E',
+                            borderBottom: `2px solid #22C55E`,
+                            paddingBottom: '1px',
+                        }}
+                    >
+                        {effectiveCorrectAnswer}
+                    </span>
+                    {/* Try again button */}
                     <button
                         onClick={handleClear}
-                        className="inline-flex items-center justify-center ml-0.5 transition-colors duration-150 hover:opacity-80"
-                        style={{ color: '#EF4444' }}
-                        aria-label="Clear input"
+                        className="inline-flex items-center justify-center ml-0.5 transition-colors duration-150 hover:opacity-80 text-xs px-1.5 py-0.5 rounded"
+                        style={{
+                            color: effectiveColor,
+                            backgroundColor: effectiveBgColor,
+                        }}
+                        aria-label="Try again"
+                        title="Try again"
                     >
-                        <X className="w-3 h-3" />
+                        ↺
                     </button>
                 </span>
             </span>
